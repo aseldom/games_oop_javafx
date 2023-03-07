@@ -23,8 +23,7 @@ public final class Logic {
     private boolean free(Cell[] steps) throws OccupiedCellException {
         for (Cell step : steps) {
             for (Figure figure : figures) {
-                if (figure != null && step.getX() == figure.position().getX()
-                        && step.getY() == figure.position().getY()) {
+                if (step.equals(figure.position())) {
                     throw new OccupiedCellException(String.format("Cell %s occupied", step));
                 }
             }
